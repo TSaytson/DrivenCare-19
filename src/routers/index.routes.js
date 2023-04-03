@@ -1,8 +1,6 @@
 import { Router } from "express";
-import signRoutes from './sign.routes.js'
+import {signRoutes} from './sign.routes.js'
 
-const router = Router();
+export const routes = Router();
 
-router.use([signRoutes]);
-
-export default router;
+routes.use([signRoutes]);

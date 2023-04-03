@@ -1,7 +1,10 @@
 import { Router } from "express";
+import { signController } from "../controllers/sign.controller.js";
+import { schemaValidation } from "../middlewares/schema.middleware.js";
+import { signInSchema, signUpSchema } from "../schemas/sign.schemas.js";
 
-const router = Router();
+export const signRoutes = Router();
 
-router.use('/signIn');
+signRoutes.post('/signIn', schemaValidation(signInSchema), signController.signIn);
+signRoutes.post('/signUp', schemaValidation(signUpSchema), signController.signUp);
 
-export default signRoutes;
